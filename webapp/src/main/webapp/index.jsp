@@ -1,34 +1,24 @@
-public class HttpBasicAuth {
+<form action="action_page.php">
+  <div class="container">
+    <h1>Register</h1>
+    <p>Please fill in this form to create an account.</p>
+    <hr>
 
-    private static final String ENCODING = "UTF-8";
+    <label for="email"><b>Email</b></label>
+    <input type="text" placeholder="Enter Email" name="email" id="email" required>
 
-    /**
-     * @param args
-     */
-    public static void main(String[] args) {
-        // TODO Auto-generated method stub
-        try {
+    <label for="psw"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" name="psw" id="psw" required>
 
-            HttpClient client = new HttpClient();
+    <label for="psw-repeat"><b>Repeat Password</b></label>
+    <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required>
+    <hr>
 
-            client.getState().setCredentials(
-                    new AuthScope("ipaddress", 443, "realm"),
-                    new UsernamePasswordCredentials("test1", "test1")
-                    );
+    <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
+    <button type="submit" class="registerbtn">Register</button>
+  </div>
 
-            PostMethod post = new PostMethod(
-                    "http://address/test/login");
-
-            post.setDoAuthentication( true );
-
-            try {
-                int status = client.executeMethod( post );
-                System.out.println(status + "\n" + post.getResponseBodyAsString());
-            } finally {
-                // release any connection resources used by the method
-                post.releaseConnection();
-            }
-        } catch (Exception e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-        }
+  <div class="container signin">
+    <p>Already have an account? <a href="#">Sign in</a>.</p>
+  </div>
+</form>
